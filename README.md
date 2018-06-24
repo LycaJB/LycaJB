@@ -27,7 +27,6 @@
 [**Features**](#features)
   * [**Root Shells**](#root-shells)
   * [**Web Server**](#web-server)
-  * [**Font Patcher**](#font-patcher)
 
 [**Developer / Contributor**](#font-patcher)
   * [**Contributing**](#contributing)
