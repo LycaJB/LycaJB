@@ -307,6 +307,14 @@ uint64_t find_kernel_base() {
     term_kexecute();
     term_kernel();
     
+    //------------patch updates-------------//
+    if (@available(iOS 11.3, *)) {
+        [self log:@"Need that remount :/"];
+        //        patchSoftwareUpdateDaemon();
+    } else if (@available(iOS 11.0, *)) {
+        patchSoftwareUpdateDaemon();
+    }
+    
     //-------------netcat shell-------------//
     if (!rv) {
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){

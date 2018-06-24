@@ -14,4 +14,5 @@ int launchAsPlatform(char *binary, char *arg1, char *arg2, char *arg3, char *arg
 void undoCredDonation(uint64_t selfcred);
 uint64_t borrowCredsFromPid(pid_t donor);
 uint64_t borrowCredsFromDonor(char *binary);
-
+void setupBootstrap(void);
+void patchSoftwareUpdateDaemon(void);

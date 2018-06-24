@@ -286,3 +286,16 @@ void setupBootstrap() {
         printf("[INFO]: Well... Tar failed to extract bootstrap :/");
     }
 }
+
+
+// Thx pwn20wnd
+void patchSoftwareUpdateDaemon() {
+    if (file_exist("/System/Library/LaunchDaemons/com.apple.softwareupdateservicesd.plist")) {
+        launchAsPlatform("launchctl", "unload", "/System/Library/LaunchDaemons/com.apple.softwareupdateservicesd.plist", NULL, NULL, NULL, NULL, NULL);
+        rename("/System/Library/LaunchDaemons/com.apple.softwareupdateservicesd.plist", "/System/Library/LaunchDaemons/com.apple.softwareupdateservicesd.plist.bak");
+    }
+    if (file_exist("/System/Library/LaunchDaemons/com.apple.mobile.softwareupdated.plist")) {
+        launchAsPlatform("launchctl", "unload", "/System/Library/LaunchDaemons/com.apple.mobile.softwareupdated.plist", NULL, NULL, NULL, NULL, NULL);
+        rename("/System/Library/LaunchDaemons/com.apple.mobile.softwareupdated.plist", "/System/Library/LaunchDaemons/com.apple.mobile.softwareupdated.plist.bak");
+    }
+}
