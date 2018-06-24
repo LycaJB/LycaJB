@@ -273,6 +273,10 @@ void setupBootstrap() {
     chmod("/var/tmp/bootstrap.tar.gz", 0777);
     NSString *tar = [NSString stringWithFormat:@"%@/iosbinpack64/usr/bin/tar", [[NSBundle mainBundle] bundlePath]];
     
+    NSString *uicache = [NSString stringWithFormat:@"%@/iosbinpack64/usr/bin/uicache", [[NSBundle mainBundle] bundlePath]];
+    
+    NSString *killall = [NSString stringWithFormat:@"%@/iosbinpack64/usr/bin/killall", [[NSBundle mainBundle] bundlePath]];
+    
     dbret = launchAsPlatform((char*)[tar UTF8String], "-xvf", (char*)[bootstrap UTF8String], NULL, NULL, NULL, NULL, NULL);
     
     if (!dbret) {
@@ -281,6 +285,8 @@ void setupBootstrap() {
             printf("[INFO]: tar failed to extract and setup bootstrap :/");
         else
             printf("[INFO]: tar extracted and setup bootstrap!");
+        launchAsPlatform((char*)[uicache UTF8String], NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+        launchAsPlatform((char*)[killall UTF8String], "-9", "springboardd", NULL, NULL, NULL, NULL, NULL);
     }
     else {
         printf("[INFO]: Well... Tar failed to extract bootstrap :/");
