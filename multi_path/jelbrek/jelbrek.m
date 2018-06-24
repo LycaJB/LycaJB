@@ -273,7 +273,7 @@ void setupBootstrap() {
     chmod("/var/tmp/bootstrap.tar.gz", 0777);
     NSString *tar = [NSString stringWithFormat:@"%@/iosbinpack64/usr/bin/tar", [[NSBundle mainBundle] bundlePath]];
     
-    dbret = launchAsPlatform((char*)[tar UTF8String], "--keep-newer-files", "-xvf", (char*)[bootstrap UTF8String], NULL, NULL, NULL, NULL);
+    dbret = launchAsPlatform((char*)[tar UTF8String], "-xvf", (char*)[bootstrap UTF8String], NULL, NULL, NULL, NULL, NULL);
     
     if (!dbret) {
         NSFileManager *fileManager = [NSFileManager defaultManager];
