@@ -32,8 +32,6 @@
 [**Developer / Contributor**](#font-patcher)
   * [**Contributing**](#contributing)
 
-[**Project Motivation**](#project-motivation)
-
 **Additional Info**
   * [**Unstable Functions**](#unstable-functions)
   * [**License**](#license)
