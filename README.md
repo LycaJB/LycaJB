@@ -57,6 +57,8 @@ _If you..._
 * Web Server
   * on port **80**
   * located at `/var/www/html`
+* Software Update Daemon Disabled
+  * Patch software update daemon (Thanks to @pwn20wnd)
 
 
 ## Root Shells
